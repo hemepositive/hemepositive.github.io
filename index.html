@@ -409,6 +409,17 @@
     <p class="note">
       Specialties with 5 or more providers, lowest adoption first.
     </p>
+    <div class="heat-key">
+      <span>% Using:</span>
+      <span>0%</span>
+      <i style="background: #dfecfd"></i>
+      <i style="background: #b7d3f6"></i>
+      <i style="background: #8ebbf2"></i>
+      <i style="background: #63a0eb"></i>
+      <i style="background: #3987e5"></i>
+      <span>100%</span>
+      <span>&middot; darker = higher adoption</span>
+    </div>
     <div class="scroll">
       <table>
         <thead>
@@ -1554,7 +1565,7 @@
       (r) => `
   <tr><td>${esc(r.name)}</td><td class="num">${r.providers}</td>
   <td class="num">${r.using}</td><td class="num">${r.never}</td>
-  <td class="num">${r.pctUsing}%</td></tr>`,
+  <td class="heat heat-${heatStep(r.pctUsing)}">${r.pctUsing}%</td></tr>`,
     )
     .join('');
 
