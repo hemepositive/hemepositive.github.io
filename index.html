@@ -9,7 +9,7 @@
     --muted: #898781;
     --grid: #e1e0d9;
     --axis: #c3c2b7;
-    --border: rgba(11, 11, 11, 0.10);
+    --border: rgba(11, 11, 11, 0.1);
     --series-1: #2a78d6;
     --series-2: #eb6834;
     --series-3: #1baf7a;
@@ -17,10 +17,14 @@
     --warning: #fab219;
     --serious: #ec835a;
     --critical: #d03b3b;
-    --r1: #86b6ef; --r2: #5598e7; --r3: #2a78d6; --r4: #1c5cab; --r5: #104281;
+    --r1: #86b6ef;
+    --r2: #5598e7;
+    --r3: #2a78d6;
+    --r4: #1c5cab;
+    --r5: #104281;
   }
   @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme="light"])) {
+    :root:where(:not([data-theme='light'])) {
       color-scheme: dark;
       --surface-1: #1a1a19;
       --plane: #0d0d0d;
@@ -28,14 +32,18 @@
       --text-secondary: #c3c2b7;
       --grid: #2c2c2a;
       --axis: #383835;
-      --border: rgba(255, 255, 255, 0.10);
+      --border: rgba(255, 255, 255, 0.1);
       --series-1: #3987e5;
       --series-2: #d95926;
       --series-3: #199e70;
-      --r1: #cde2fb; --r2: #9ec5f4; --r3: #6da7ec; --r4: #3987e5; --r5: #184f95;
+      --r1: #cde2fb;
+      --r2: #9ec5f4;
+      --r3: #6da7ec;
+      --r4: #3987e5;
+      --r5: #184f95;
     }
   }
-  :root[data-theme="dark"] {
+  :root[data-theme='dark'] {
     color-scheme: dark;
     --surface-1: #1a1a19;
     --plane: #0d0d0d;
@@ -43,26 +51,55 @@
     --text-secondary: #c3c2b7;
     --grid: #2c2c2a;
     --axis: #383835;
-    --border: rgba(255, 255, 255, 0.10);
+    --border: rgba(255, 255, 255, 0.1);
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;
-    --r1: #cde2fb; --r2: #9ec5f4; --r3: #6da7ec; --r4: #3987e5; --r5: #184f95;
+    --r1: #cde2fb;
+    --r2: #9ec5f4;
+    --r3: #6da7ec;
+    --r4: #3987e5;
+    --r5: #184f95;
   }
 
   body {
     margin: 0;
     background: var(--plane);
     color: var(--text-primary);
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
     line-height: 1.5;
   }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
-  header { margin-bottom: 8px; }
-  h1 { font-size: 1.6rem; margin: 0 0 4px; letter-spacing: -0.01em; }
-  .sub { color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 28px; }
-  h2 { font-size: 1.05rem; margin: 0 0 2px; }
-  .note { color: var(--text-secondary); font-size: 0.85rem; margin: 0 0 16px; }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  header {
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .sub {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0 0 28px;
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin: 0 0 2px;
+  }
+  .note {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0 0 16px;
+  }
   .card {
     background: var(--surface-1);
     border: 1px solid var(--border);
@@ -70,52 +107,219 @@
     padding: 20px;
     margin-bottom: 20px;
   }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 20px; }
-  .kpi { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-  .kpi .label { font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
-  .kpi .value { font-size: 2.1rem; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
-  .kpi .foot { font-size: 0.8rem; color: var(--muted); }
-  .hero .value { font-size: 3rem; color: var(--series-1); }
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .kpi {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .kpi .label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .kpi .value {
+    font-size: 2.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 4px;
+  }
+  .kpi .foot {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .hero .value {
+    font-size: 3rem;
+    color: var(--series-1);
+  }
 
-  table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
-  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--grid); }
-  th { color: var(--text-secondary); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
-  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-  .scroll { overflow-x: auto; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.88rem;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--grid);
+  }
+  th {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  td.num,
+  th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .scroll {
+    overflow-x: auto;
+  }
 
-  .bar-row { display: grid; grid-template-columns: 290px 1fr 108px; gap: 12px; align-items: center; margin-bottom: 7px; font-size: 0.85rem; }
-  .bar-label { color: var(--text-secondary); }
-  .track { background: var(--grid); border-radius: 4px; height: 20px; position: relative; overflow: hidden; }
-  .fill { height: 100%; border-radius: 4px; }
-  .bar-val { font-variant-numeric: tabular-nums; color: var(--text-secondary); font-size: 0.82rem; }
+  /* Heat cells: sequential blue ramp encoding % using, light -> dark.
+     Fixed steps (not theme-dependent) so the ramp reads the same everywhere;
+     every step clears 4.5:1 against the black label, so the ink never flips. */
+  td.heat {
+    --heat-1: #dfecfd;
+    --heat-2: #b7d3f6;
+    --heat-3: #8ebbf2;
+    --heat-4: #63a0eb;
+    --heat-5: #3987e5;
+    color: #0b0b0b;
+    font-weight: 600;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    min-width: 78px;
+    border-bottom: 1px solid var(--surface-1);
+  }
+  td.heat-1 { background: var(--heat-1); }
+  td.heat-2 { background: var(--heat-2); }
+  td.heat-3 { background: var(--heat-3); }
+  td.heat-4 { background: var(--heat-4); }
+  td.heat-5 { background: var(--heat-5); }
 
-  .funnel-row { display: grid; grid-template-columns: 170px 1fr 132px; gap: 12px; align-items: center; margin-bottom: 8px; font-size: 0.87rem; }
+  .heat-key {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin: 0 0 10px;
+    flex-wrap: wrap;
+  }
+  .heat-key i {
+    width: 34px;
+    height: 14px;
+    border-radius: 2px;
+    display: inline-block;
+  }
 
-  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 14px; font-size: 0.82rem; color: var(--text-secondary); }
-  .legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 290px 1fr 108px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 7px;
+    font-size: 0.85rem;
+  }
+  .bar-label {
+    color: var(--text-secondary);
+  }
+  .track {
+    background: var(--grid);
+    border-radius: 4px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+  .bar-val {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+  }
 
-  .callout { border-left: 3px solid var(--series-2); background: var(--surface-1); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 20px; }
-  .callout strong { color: var(--series-2); }
-  .seg { display: flex; gap: 2px; height: 26px; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
-  .seg div { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: #fff; font-weight: 600; }
-  footer { color: var(--muted); font-size: 0.8rem; margin-top: 36px; border-top: 1px solid var(--grid); padding-top: 16px; }
+  .funnel-row {
+    display: grid;
+    grid-template-columns: 170px 1fr 132px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.87rem;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 0 14px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sw {
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .callout {
+    border-left: 3px solid var(--series-2);
+    background: var(--surface-1);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+  .callout strong {
+    color: var(--series-2);
+  }
+  .seg {
+    display: flex;
+    gap: 2px;
+    height: 26px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .seg div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    color: #fff;
+    font-weight: 600;
+  }
+  footer {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 36px;
+    border-top: 1px solid var(--grid);
+    padding-top: 16px;
+  }
   @media (max-width: 640px) {
-    .bar-row, .funnel-row { grid-template-columns: 120px 1fr 84px; font-size: 0.8rem; }
+    .bar-row,
+    .funnel-row {
+      grid-template-columns: 120px 1fr 84px;
+      font-size: 0.8rem;
+    }
   }
 </style>
 
 <div class="wrap">
   <header>
-    <h1>TigerConnect Adoption Dashboard</h1>
-    <p class="sub">Provider utilization as of <span id="snap"></span> &middot; based on last login time</p>
+    <h1>TigerConnect Adoption Dashboard - HH</h1>
+    <p class="sub">
+      Provider utilization as of <span id="snap"></span> &middot; based on last
+      login time
+    </p>
   </header>
 
   <div class="kpis">
     <div class="kpi hero">
       <div class="label">Core adoption</div>
       <div class="value" id="k-core">—</div>
-      <div class="foot"><span id="k-coren"></span> logged in within 30 days</div>
+      <div class="foot">
+        <span id="k-coren"></span> logged in within 30 days
+      </div>
     </div>
     <div class="kpi">
       <div class="label">Never activated</div>
@@ -136,15 +340,18 @@
 
   <div class="callout">
     <strong>Anesthesia is excluded from the core rate.</strong>
-    <span id="anes-text"></span> They communicate by walkie-talkie and were never
-    asked to adopt TigerConnect, so counting them as non-adopters understates
-    performance everywhere else. Including them, the rate is
+    <span id="anes-text"></span> They communicate by walkie-talkie and were
+    never asked to adopt TigerConnect, so counting them as non-adopters
+    understates performance everywhere else. Including them, the rate is
     <span id="anes-all"></span>.
   </div>
 
   <div class="card">
     <h2>Adoption funnel</h2>
-    <p class="note">Core providers only, excluding anesthesia and vendors. Each provider appears in exactly one tier.</p>
+    <p class="note">
+      Core providers only, excluding anesthesia and vendors. Each provider
+      appears in exactly one tier.
+    </p>
     <div id="funnel"></div>
   </div>
 
@@ -155,25 +362,43 @@
       providers are not using it — the biggest recoveries first.
     </p>
     <div class="legend">
-      <span><i class="sw" style="background:var(--series-1)"></i> Using (last 30 days)</span>
-      <span><i class="sw" style="background:var(--grid)"></i> Not using</span>
+      <span
+        ><i class="sw" style="background: var(--series-1)"></i> Using (last 30
+        days)</span
+      >
+      <span><i class="sw" style="background: var(--grid)"></i> Not using</span>
     </div>
     <div id="targets"></div>
   </div>
 
   <div class="card">
     <h2>Adoption by practice group</h2>
-    <p class="note">All core practices with 5 or more providers, lowest adoption first.</p>
+    <p class="note">
+      All core practices with 5 or more providers, lowest adoption first.
+    </p>
+    <div class="heat-key">
+      <span>% Using:</span>
+      <span>0%</span>
+      <i style="background: #dfecfd"></i>
+      <i style="background: #b7d3f6"></i>
+      <i style="background: #8ebbf2"></i>
+      <i style="background: #63a0eb"></i>
+      <i style="background: #3987e5"></i>
+      <span>100%</span>
+      <span>&middot; darker = higher adoption</span>
+    </div>
     <div class="scroll">
       <table>
-        <thead><tr>
-          <th>Practice group</th>
-          <th class="num">Providers</th>
-          <th class="num">Using</th>
-          <th class="num">Never activated</th>
-          <th class="num">Dormant</th>
-          <th class="num">% Using</th>
-        </tr></thead>
+        <thead>
+          <tr>
+            <th>Practice group</th>
+            <th class="num">Providers</th>
+            <th class="num">Using</th>
+            <th class="num">Never activated</th>
+            <th class="num">Dormant</th>
+            <th class="num">% Using</th>
+          </tr>
+        </thead>
         <tbody id="tb-practice"></tbody>
       </table>
     </div>
@@ -181,16 +406,20 @@
 
   <div class="card">
     <h2>Adoption by specialty</h2>
-    <p class="note">Specialties with 5 or more providers, lowest adoption first.</p>
+    <p class="note">
+      Specialties with 5 or more providers, lowest adoption first.
+    </p>
     <div class="scroll">
       <table>
-        <thead><tr>
-          <th>Specialty</th>
-          <th class="num">Providers</th>
-          <th class="num">Using</th>
-          <th class="num">Never activated</th>
-          <th class="num">% Using</th>
-        </tr></thead>
+        <thead>
+          <tr>
+            <th>Specialty</th>
+            <th class="num">Providers</th>
+            <th class="num">Using</th>
+            <th class="num">Never activated</th>
+            <th class="num">% Using</th>
+          </tr>
+        </thead>
         <tbody id="tb-spec"></tbody>
       </table>
     </div>
@@ -198,7 +427,9 @@
 
   <div class="card">
     <h2>Adoption by staff category</h2>
-    <p class="note">Allied Health-Dependent and Associate staff lag well behind physicians.</p>
+    <p class="note">
+      Allied Health-Dependent and Associate staff lag well behind physicians.
+    </p>
     <div id="cats"></div>
   </div>
 
@@ -211,55 +442,1131 @@
 </div>
 
 <script>
-const DATA = {"snapshot":"2026-08-03","totals":{"allProviders":1300,"coreProviders":1130,"anesthesia":164,"anesthesiaNever":134,"vendorsExcluded":6,"coreUsing":743,"corePctUsing":65.8,"allPctUsing":57.8,"coreNever":255,"coreDormant":132,"recoverable":387},"funnelCore":[{"tier":"Never Activated","count":255,"pct":22.6},{"tier":"Never Logged In","count":0,"pct":0.0},{"tier":"Dormant 90+ days","count":108,"pct":9.6},{"tier":"Lapsed 31-90 days","count":24,"pct":2.1},{"tier":"Light (8-30 days)","count":230,"pct":20.4},{"tier":"Active (last 7 days)","count":513,"pct":45.4}],"funnelAll":[{"tier":"Never Activated","count":395,"pct":30.4},{"tier":"Never Logged In","count":0,"pct":0.0},{"tier":"Dormant 90+ days","count":129,"pct":9.9},{"tier":"Lapsed 31-90 days","count":24,"pct":1.8},{"tier":"Light (8-30 days)","count":237,"pct":18.2},{"tier":"Active (last 7 days)","count":515,"pct":39.6}],"byPractice":[{"name":"Madison Hospital Emergency Department","providers":13,"never":8,"dormant":3,"using":2,"pctUsing":15.4,"pctNever":61.5},{"name":"Alabama Pediatric Dental Associates","providers":6,"never":4,"dormant":1,"using":1,"pctUsing":16.7,"pctNever":66.7},{"name":"Retina Specialists of North Alabama","providers":5,"never":1,"dormant":3,"using":1,"pctUsing":20.0,"pctNever":20.0},{"name":"Tennessee Valley Pain Consultants","providers":26,"never":12,"dormant":6,"using":8,"pctUsing":30.8,"pctNever":46.2},{"name":"General Surgery Associates, PC","providers":6,"never":4,"dormant":0,"using":2,"pctUsing":33.3,"pctNever":66.7},{"name":"Neurology Consultants of Huntsville, PC","providers":6,"never":3,"dormant":1,"using":2,"pctUsing":33.3,"pctNever":50.0},{"name":"Clearview Cancer Institute","providers":41,"never":21,"dormant":5,"using":15,"pctUsing":36.6,"pctNever":51.2},{"name":"HH Obstetrics and Gynecology / Hospitalists / ED","providers":23,"never":6,"dormant":8,"using":9,"pctUsing":39.1,"pctNever":26.1},{"name":"Tennessee Valley OB/GYN","providers":5,"never":3,"dormant":0,"using":2,"pctUsing":40.0,"pctNever":60.0},{"name":"The Eye Center","providers":5,"never":3,"dormant":0,"using":2,"pctUsing":40.0,"pctNever":60.0},{"name":"Huntsville Hospital Neonatal Intensive Care Unit (NICU)","providers":16,"never":6,"dormant":3,"using":7,"pctUsing":43.8,"pctNever":37.5},{"name":"Radiology of Huntsville","providers":59,"never":17,"dormant":13,"using":29,"pctUsing":49.2,"pctNever":28.8},{"name":"Huntsville Renal Clinic","providers":16,"never":4,"dormant":4,"using":8,"pctUsing":50.0,"pctNever":25.0},{"name":"St. Jude Clinic at Huntsville Hospital for Women and Children","providers":8,"never":2,"dormant":2,"using":4,"pctUsing":50.0,"pctNever":25.0},{"name":"North Alabama Urology","providers":6,"never":3,"dormant":0,"using":3,"pctUsing":50.0,"pctNever":50.0},{"name":"The Orthopaedic Center","providers":71,"never":23,"dormant":12,"using":36,"pctUsing":50.7,"pctNever":32.4},{"name":"Huntsville Cardiothoracic Surgeons","providers":26,"never":6,"dormant":6,"using":14,"pctUsing":53.8,"pctNever":23.1},{"name":"Clinic For Women","providers":7,"never":1,"dormant":2,"using":4,"pctUsing":57.1,"pctNever":14.3},{"name":"Tennessee Valley Pediatric Surgery","providers":7,"never":2,"dormant":1,"using":4,"pctUsing":57.1,"pctNever":28.6},{"name":"Women4Women OBGYN","providers":7,"never":2,"dormant":1,"using":4,"pctUsing":57.1,"pctNever":28.6},{"name":"Clinic for Colon & Rectal Surgery","providers":5,"never":2,"dormant":0,"using":3,"pctUsing":60.0,"pctNever":40.0},{"name":"Huntsville Hospital Endocrinology & Diabetes Clinic","providers":5,"never":0,"dormant":2,"using":3,"pctUsing":60.0,"pctNever":0.0},{"name":"Tennessee Valley Neonatology","providers":8,"never":2,"dormant":1,"using":5,"pctUsing":62.5,"pctNever":25.0},{"name":"Alliance Cancer Care","providers":11,"never":1,"dormant":3,"using":7,"pctUsing":63.6,"pctNever":9.1},{"name":"North Alabama ENT Associates","providers":14,"never":3,"dormant":2,"using":9,"pctUsing":64.3,"pctNever":21.4},{"name":"Huntsville Cardiovascular Clinic","providers":17,"never":5,"dormant":1,"using":11,"pctUsing":64.7,"pctNever":29.4},{"name":"Metro Center for Health - Alabama","providers":13,"never":3,"dormant":1,"using":9,"pctUsing":69.2,"pctNever":23.1},{"name":"Huntsville Hospital Digestive Disease Center","providers":17,"never":4,"dormant":1,"using":12,"pctUsing":70.6,"pctNever":23.5},{"name":"Huntsville Hospital Palliative Care Services","providers":14,"never":2,"dormant":2,"using":10,"pctUsing":71.4,"pctNever":14.3},{"name":"Southern Cancer Center","providers":7,"never":1,"dormant":1,"using":5,"pctUsing":71.4,"pctNever":14.3},{"name":"Hsv Emergency Physicians Group","providers":96,"never":13,"dormant":10,"using":73,"pctUsing":76.0,"pctNever":13.5},{"name":"Huntsville Hospital Pediatric Hospitalists","providers":22,"never":1,"dormant":4,"using":17,"pctUsing":77.3,"pctNever":4.5},{"name":"HH Heart Center, LLC","providers":78,"never":5,"dormant":12,"using":61,"pctUsing":78.2,"pctNever":6.4},{"name":"OB-GYN Associates","providers":10,"never":1,"dormant":1,"using":8,"pctUsing":80.0,"pctNever":10.0},{"name":"Huntsville Hospital Lung Center","providers":37,"never":5,"dormant":2,"using":30,"pctUsing":81.1,"pctNever":13.5},{"name":"Huntsville Hospital Emergency Department","providers":12,"never":1,"dormant":1,"using":10,"pctUsing":83.3,"pctNever":8.3},{"name":"Valley Vascular Consultants, PC","providers":6,"never":0,"dormant":1,"using":5,"pctUsing":83.3,"pctNever":0.0},{"name":"Pathology Associates, PC","providers":14,"never":1,"dormant":1,"using":12,"pctUsing":85.7,"pctNever":7.1},{"name":"Nephrology Consultants","providers":15,"never":0,"dormant":2,"using":13,"pctUsing":86.7,"pctNever":0.0},{"name":"Huntsville Hospital Neurology Nurse Practitioners","providers":9,"never":1,"dormant":0,"using":8,"pctUsing":88.9,"pctNever":11.1},{"name":"Spine and Neuro Center","providers":28,"never":1,"dormant":1,"using":26,"pctUsing":92.9,"pctNever":3.6},{"name":"UAB School of Medicine-FP","providers":14,"never":1,"dormant":0,"using":13,"pctUsing":92.9,"pctNever":7.1},{"name":"North Alabama Hospitalists","providers":87,"never":2,"dormant":1,"using":84,"pctUsing":96.6,"pctNever":2.3},{"name":"UAB School of Medicine-IM","providers":15,"never":0,"dormant":0,"using":15,"pctUsing":100.0,"pctNever":0.0},{"name":"Huntsville Surgical Associates","providers":14,"never":0,"dormant":0,"using":14,"pctUsing":100.0,"pctNever":0.0},{"name":"Huntsville Hospital Behavioral Health Hospitalists","providers":8,"never":0,"dormant":0,"using":8,"pctUsing":100.0,"pctNever":0.0},{"name":"HH Heart Center, Madison","providers":7,"never":0,"dormant":0,"using":7,"pctUsing":100.0,"pctNever":0.0},{"name":"Huntsville Hospital Valley Surgical Associates","providers":7,"never":0,"dormant":0,"using":7,"pctUsing":100.0,"pctNever":0.0},{"name":"Pediatric Intensivists W&C","providers":6,"never":0,"dormant":0,"using":6,"pctUsing":100.0,"pctNever":0.0},{"name":"Alabama Infectious Disease Center, PC","providers":5,"never":0,"dormant":0,"using":5,"pctUsing":100.0,"pctNever":0.0},{"name":"Heart Center, Inc. (Decatur)","providers":5,"never":0,"dormant":0,"using":5,"pctUsing":100.0,"pctNever":0.0}],"bySpecialty":[{"name":"Pain Management","providers":6,"never":3,"dormant":2,"using":1,"pctUsing":16.7,"pctNever":50.0},{"name":"Women's Health Care Nurse Practitioner","providers":9,"never":4,"dormant":3,"using":2,"pctUsing":22.2,"pctNever":44.4},{"name":"Ophthalmology","providers":22,"never":11,"dormant":5,"using":6,"pctUsing":27.3,"pctNever":50.0},{"name":"Adult Nurse Practitioner","providers":7,"never":4,"dormant":1,"using":2,"pctUsing":28.6,"pctNever":57.1},{"name":"Certified Registered Nurse Midwife","providers":7,"never":4,"dormant":1,"using":2,"pctUsing":28.6,"pctNever":57.1},{"name":"Children's Dentistry","providers":10,"never":5,"dormant":2,"using":3,"pctUsing":30.0,"pctNever":50.0},{"name":"Neonatal Nurse Practitioner","providers":16,"never":7,"dormant":4,"using":5,"pctUsing":31.2,"pctNever":43.8},{"name":"Hematology - Oncology","providers":18,"never":9,"dormant":1,"using":8,"pctUsing":44.4,"pctNever":50.0},{"name":"Radiology","providers":26,"never":11,"dormant":3,"using":12,"pctUsing":46.2,"pctNever":42.3},{"name":"Radiology, Diagnostic","providers":30,"never":6,"dormant":10,"using":14,"pctUsing":46.7,"pctNever":20.0},{"name":"Certified Physician Assistant","providers":80,"never":26,"dormant":14,"using":40,"pctUsing":50.0,"pctNever":32.5},{"name":"Obstetrics and Gynecology","providers":41,"never":12,"dormant":7,"using":22,"pctUsing":53.7,"pctNever":29.3},{"name":"Orthopedic Surgery","providers":27,"never":6,"dormant":6,"using":15,"pctUsing":55.6,"pctNever":22.2},{"name":"Adult Gerontology Acute Care Nurse Practitioner","providers":100,"never":24,"dormant":20,"using":56,"pctUsing":56.0,"pctNever":24.0},{"name":"Pediatrics","providers":30,"never":12,"dormant":1,"using":17,"pctUsing":56.7,"pctNever":40.0},{"name":"Neonatology","providers":7,"never":2,"dormant":1,"using":4,"pctUsing":57.1,"pctNever":28.6},{"name":"Family Nurse Practitioner","providers":134,"never":33,"dormant":23,"using":78,"pctUsing":58.2,"pctNever":24.6},{"name":"Endocrinology","providers":5,"never":0,"dormant":2,"using":3,"pctUsing":60.0,"pctNever":0.0},{"name":"Plastic Surgery","providers":5,"never":2,"dormant":0,"using":3,"pctUsing":60.0,"pctNever":40.0},{"name":"Neurology","providers":13,"never":4,"dormant":1,"using":8,"pctUsing":61.5,"pctNever":30.8},{"name":"Urology","providers":8,"never":3,"dormant":0,"using":5,"pctUsing":62.5,"pctNever":37.5},{"name":"Adult Gerontology Primary Care Nurse Practitioner","providers":11,"never":2,"dormant":2,"using":7,"pctUsing":63.6,"pctNever":18.2},{"name":"Cardiothoracic Surgery","providers":6,"never":1,"dormant":1,"using":4,"pctUsing":66.7,"pctNever":16.7},{"name":"General Surgery","providers":16,"never":5,"dormant":0,"using":11,"pctUsing":68.8,"pctNever":31.2},{"name":"Acute Care Nurse Practitioner","providers":38,"never":6,"dormant":5,"using":27,"pctUsing":71.1,"pctNever":15.8},{"name":"Gastroenterology","providers":7,"never":2,"dormant":0,"using":5,"pctUsing":71.4,"pctNever":28.6},{"name":"Physical Medicine & Rehabilitation","providers":7,"never":2,"dormant":0,"using":5,"pctUsing":71.4,"pctNever":28.6},{"name":"Radiation Oncology","providers":8,"never":1,"dormant":1,"using":6,"pctUsing":75.0,"pctNever":12.5},{"name":"Otolaryngology","providers":14,"never":2,"dormant":1,"using":11,"pctUsing":78.6,"pctNever":14.3},{"name":"Infectious Diseases","providers":15,"never":2,"dormant":1,"using":12,"pctUsing":80.0,"pctNever":13.3},{"name":"Oral Maxiliofacial Surgery","providers":5,"never":1,"dormant":0,"using":4,"pctUsing":80.0,"pctNever":20.0},{"name":"Emergency Medicine","providers":55,"never":5,"dormant":4,"using":46,"pctUsing":83.6,"pctNever":9.1},{"name":"Family Medicine","providers":49,"never":7,"dormant":1,"using":41,"pctUsing":83.7,"pctNever":14.3},{"name":"Pediatric Acute Care Nurse Practitioner","providers":8,"never":0,"dormant":1,"using":7,"pctUsing":87.5,"pctNever":0.0},{"name":"Pediatric Emergency Medicine","providers":10,"never":0,"dormant":1,"using":9,"pctUsing":90.0,"pctNever":0.0},{"name":"Cardiology","providers":54,"never":4,"dormant":1,"using":49,"pctUsing":90.7,"pctNever":7.4},{"name":"Internal Medicine","providers":66,"never":5,"dormant":1,"using":60,"pctUsing":90.9,"pctNever":7.6},{"name":"Psychiatry","providers":12,"never":1,"dormant":0,"using":11,"pctUsing":91.7,"pctNever":8.3},{"name":"Nephrology","providers":15,"never":0,"dormant":1,"using":14,"pctUsing":93.3,"pctNever":0.0},{"name":"Pulmonology","providers":11,"never":0,"dormant":0,"using":11,"pctUsing":100.0,"pctNever":0.0},{"name":"Pathology","providers":9,"never":0,"dormant":0,"using":9,"pctUsing":100.0,"pctNever":0.0},{"name":"Neurosurgery","providers":7,"never":0,"dormant":0,"using":7,"pctUsing":100.0,"pctNever":0.0},{"name":"Critical Care","providers":5,"never":0,"dormant":0,"using":5,"pctUsing":100.0,"pctNever":0.0},{"name":"Critical Care/Trauma","providers":5,"never":0,"dormant":0,"using":5,"pctUsing":100.0,"pctNever":0.0},{"name":"Vascular Surgery","providers":5,"never":0,"dormant":0,"using":5,"pctUsing":100.0,"pctNever":0.0}],"byCategory":[{"name":"Associate","providers":51,"never":30,"dormant":6,"using":15,"pctUsing":29.4,"pctNever":58.8},{"name":"Allied Health-Dependent","providers":390,"never":112,"dormant":69,"using":209,"pctUsing":53.6,"pctNever":28.7},{"name":"Active","providers":554,"never":103,"dormant":46,"using":405,"pctUsing":73.1,"pctNever":18.6},{"name":"AHP-Dependent Provisional","providers":33,"never":2,"dormant":6,"using":25,"pctUsing":75.8,"pctNever":6.1},{"name":"Provisional Active","providers":99,"never":8,"dormant":5,"using":86,"pctUsing":86.9,"pctNever":8.1},{"name":"Allied Health-Independent","providers":2,"never":0,"dormant":0,"using":2,"pctUsing":100.0,"pctNever":0.0},{"name":"Provisional Associate","providers":1,"never":0,"dormant":0,"using":1,"pctUsing":100.0,"pctNever":0.0}],"targets":[{"name":"Clearview Cancer Institute","providers":41,"never":21,"dormant":5,"using":15,"pctUsing":36.6,"pctNever":51.2},{"name":"Tennessee Valley Pain Consultants","providers":26,"never":12,"dormant":6,"using":8,"pctUsing":30.8,"pctNever":46.2},{"name":"HH Obstetrics and Gynecology / Hospitalists / ED","providers":23,"never":6,"dormant":8,"using":9,"pctUsing":39.1,"pctNever":26.1},{"name":"Madison Hospital Emergency Department","providers":13,"never":8,"dormant":3,"using":2,"pctUsing":15.4,"pctNever":61.5},{"name":"Alabama Pediatric Dental Associates","providers":6,"never":4,"dormant":1,"using":1,"pctUsing":16.7,"pctNever":66.7},{"name":"Retina Specialists of North Alabama","providers":5,"never":1,"dormant":3,"using":1,"pctUsing":20.0,"pctNever":20.0},{"name":"General Surgery Associates, PC","providers":6,"never":4,"dormant":0,"using":2,"pctUsing":33.3,"pctNever":66.7},{"name":"Neurology Consultants of Huntsville, PC","providers":6,"never":3,"dormant":1,"using":2,"pctUsing":33.3,"pctNever":50.0}]};
-const t = DATA.totals;
-const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const DATA = {
+    snapshot: '2026-08-03',
+    totals: {
+      allProviders: 1300,
+      coreProviders: 1130,
+      anesthesia: 164,
+      anesthesiaNever: 134,
+      vendorsExcluded: 6,
+      coreUsing: 743,
+      corePctUsing: 65.8,
+      allPctUsing: 57.8,
+      coreNever: 255,
+      coreDormant: 132,
+      recoverable: 387,
+    },
+    funnelCore: [
+      { tier: 'Never Activated', count: 255, pct: 22.6 },
+      { tier: 'Never Logged In', count: 0, pct: 0.0 },
+      { tier: 'Dormant 90+ days', count: 108, pct: 9.6 },
+      { tier: 'Lapsed 31-90 days', count: 24, pct: 2.1 },
+      { tier: 'Light (8-30 days)', count: 230, pct: 20.4 },
+      { tier: 'Active (last 7 days)', count: 513, pct: 45.4 },
+    ],
+    funnelAll: [
+      { tier: 'Never Activated', count: 395, pct: 30.4 },
+      { tier: 'Never Logged In', count: 0, pct: 0.0 },
+      { tier: 'Dormant 90+ days', count: 129, pct: 9.9 },
+      { tier: 'Lapsed 31-90 days', count: 24, pct: 1.8 },
+      { tier: 'Light (8-30 days)', count: 237, pct: 18.2 },
+      { tier: 'Active (last 7 days)', count: 515, pct: 39.6 },
+    ],
+    byPractice: [
+      {
+        name: 'Madison Hospital Emergency Department',
+        providers: 13,
+        never: 8,
+        dormant: 3,
+        using: 2,
+        pctUsing: 15.4,
+        pctNever: 61.5,
+      },
+      {
+        name: 'Alabama Pediatric Dental Associates',
+        providers: 6,
+        never: 4,
+        dormant: 1,
+        using: 1,
+        pctUsing: 16.7,
+        pctNever: 66.7,
+      },
+      {
+        name: 'Retina Specialists of North Alabama',
+        providers: 5,
+        never: 1,
+        dormant: 3,
+        using: 1,
+        pctUsing: 20.0,
+        pctNever: 20.0,
+      },
+      {
+        name: 'Tennessee Valley Pain Consultants',
+        providers: 26,
+        never: 12,
+        dormant: 6,
+        using: 8,
+        pctUsing: 30.8,
+        pctNever: 46.2,
+      },
+      {
+        name: 'General Surgery Associates, PC',
+        providers: 6,
+        never: 4,
+        dormant: 0,
+        using: 2,
+        pctUsing: 33.3,
+        pctNever: 66.7,
+      },
+      {
+        name: 'Neurology Consultants of Huntsville, PC',
+        providers: 6,
+        never: 3,
+        dormant: 1,
+        using: 2,
+        pctUsing: 33.3,
+        pctNever: 50.0,
+      },
+      {
+        name: 'Clearview Cancer Institute',
+        providers: 41,
+        never: 21,
+        dormant: 5,
+        using: 15,
+        pctUsing: 36.6,
+        pctNever: 51.2,
+      },
+      {
+        name: 'HH Obstetrics and Gynecology / Hospitalists / ED',
+        providers: 23,
+        never: 6,
+        dormant: 8,
+        using: 9,
+        pctUsing: 39.1,
+        pctNever: 26.1,
+      },
+      {
+        name: 'Tennessee Valley OB/GYN',
+        providers: 5,
+        never: 3,
+        dormant: 0,
+        using: 2,
+        pctUsing: 40.0,
+        pctNever: 60.0,
+      },
+      {
+        name: 'The Eye Center',
+        providers: 5,
+        never: 3,
+        dormant: 0,
+        using: 2,
+        pctUsing: 40.0,
+        pctNever: 60.0,
+      },
+      {
+        name: 'Huntsville Hospital Neonatal Intensive Care Unit (NICU)',
+        providers: 16,
+        never: 6,
+        dormant: 3,
+        using: 7,
+        pctUsing: 43.8,
+        pctNever: 37.5,
+      },
+      {
+        name: 'Radiology of Huntsville',
+        providers: 59,
+        never: 17,
+        dormant: 13,
+        using: 29,
+        pctUsing: 49.2,
+        pctNever: 28.8,
+      },
+      {
+        name: 'Huntsville Renal Clinic',
+        providers: 16,
+        never: 4,
+        dormant: 4,
+        using: 8,
+        pctUsing: 50.0,
+        pctNever: 25.0,
+      },
+      {
+        name: 'St. Jude Clinic at Huntsville Hospital for Women and Children',
+        providers: 8,
+        never: 2,
+        dormant: 2,
+        using: 4,
+        pctUsing: 50.0,
+        pctNever: 25.0,
+      },
+      {
+        name: 'North Alabama Urology',
+        providers: 6,
+        never: 3,
+        dormant: 0,
+        using: 3,
+        pctUsing: 50.0,
+        pctNever: 50.0,
+      },
+      {
+        name: 'The Orthopaedic Center',
+        providers: 71,
+        never: 23,
+        dormant: 12,
+        using: 36,
+        pctUsing: 50.7,
+        pctNever: 32.4,
+      },
+      {
+        name: 'Huntsville Cardiothoracic Surgeons',
+        providers: 26,
+        never: 6,
+        dormant: 6,
+        using: 14,
+        pctUsing: 53.8,
+        pctNever: 23.1,
+      },
+      {
+        name: 'Clinic For Women',
+        providers: 7,
+        never: 1,
+        dormant: 2,
+        using: 4,
+        pctUsing: 57.1,
+        pctNever: 14.3,
+      },
+      {
+        name: 'Tennessee Valley Pediatric Surgery',
+        providers: 7,
+        never: 2,
+        dormant: 1,
+        using: 4,
+        pctUsing: 57.1,
+        pctNever: 28.6,
+      },
+      {
+        name: 'Women4Women OBGYN',
+        providers: 7,
+        never: 2,
+        dormant: 1,
+        using: 4,
+        pctUsing: 57.1,
+        pctNever: 28.6,
+      },
+      {
+        name: 'Clinic for Colon & Rectal Surgery',
+        providers: 5,
+        never: 2,
+        dormant: 0,
+        using: 3,
+        pctUsing: 60.0,
+        pctNever: 40.0,
+      },
+      {
+        name: 'Huntsville Hospital Endocrinology & Diabetes Clinic',
+        providers: 5,
+        never: 0,
+        dormant: 2,
+        using: 3,
+        pctUsing: 60.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Tennessee Valley Neonatology',
+        providers: 8,
+        never: 2,
+        dormant: 1,
+        using: 5,
+        pctUsing: 62.5,
+        pctNever: 25.0,
+      },
+      {
+        name: 'Alliance Cancer Care',
+        providers: 11,
+        never: 1,
+        dormant: 3,
+        using: 7,
+        pctUsing: 63.6,
+        pctNever: 9.1,
+      },
+      {
+        name: 'North Alabama ENT Associates',
+        providers: 14,
+        never: 3,
+        dormant: 2,
+        using: 9,
+        pctUsing: 64.3,
+        pctNever: 21.4,
+      },
+      {
+        name: 'Huntsville Cardiovascular Clinic',
+        providers: 17,
+        never: 5,
+        dormant: 1,
+        using: 11,
+        pctUsing: 64.7,
+        pctNever: 29.4,
+      },
+      {
+        name: 'Metro Center for Health - Alabama',
+        providers: 13,
+        never: 3,
+        dormant: 1,
+        using: 9,
+        pctUsing: 69.2,
+        pctNever: 23.1,
+      },
+      {
+        name: 'Huntsville Hospital Digestive Disease Center',
+        providers: 17,
+        never: 4,
+        dormant: 1,
+        using: 12,
+        pctUsing: 70.6,
+        pctNever: 23.5,
+      },
+      {
+        name: 'Huntsville Hospital Palliative Care Services',
+        providers: 14,
+        never: 2,
+        dormant: 2,
+        using: 10,
+        pctUsing: 71.4,
+        pctNever: 14.3,
+      },
+      {
+        name: 'Southern Cancer Center',
+        providers: 7,
+        never: 1,
+        dormant: 1,
+        using: 5,
+        pctUsing: 71.4,
+        pctNever: 14.3,
+      },
+      {
+        name: 'Hsv Emergency Physicians Group',
+        providers: 96,
+        never: 13,
+        dormant: 10,
+        using: 73,
+        pctUsing: 76.0,
+        pctNever: 13.5,
+      },
+      {
+        name: 'Huntsville Hospital Pediatric Hospitalists',
+        providers: 22,
+        never: 1,
+        dormant: 4,
+        using: 17,
+        pctUsing: 77.3,
+        pctNever: 4.5,
+      },
+      {
+        name: 'HH Heart Center, LLC',
+        providers: 78,
+        never: 5,
+        dormant: 12,
+        using: 61,
+        pctUsing: 78.2,
+        pctNever: 6.4,
+      },
+      {
+        name: 'OB-GYN Associates',
+        providers: 10,
+        never: 1,
+        dormant: 1,
+        using: 8,
+        pctUsing: 80.0,
+        pctNever: 10.0,
+      },
+      {
+        name: 'Huntsville Hospital Lung Center',
+        providers: 37,
+        never: 5,
+        dormant: 2,
+        using: 30,
+        pctUsing: 81.1,
+        pctNever: 13.5,
+      },
+      {
+        name: 'Huntsville Hospital Emergency Department',
+        providers: 12,
+        never: 1,
+        dormant: 1,
+        using: 10,
+        pctUsing: 83.3,
+        pctNever: 8.3,
+      },
+      {
+        name: 'Valley Vascular Consultants, PC',
+        providers: 6,
+        never: 0,
+        dormant: 1,
+        using: 5,
+        pctUsing: 83.3,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Pathology Associates, PC',
+        providers: 14,
+        never: 1,
+        dormant: 1,
+        using: 12,
+        pctUsing: 85.7,
+        pctNever: 7.1,
+      },
+      {
+        name: 'Nephrology Consultants',
+        providers: 15,
+        never: 0,
+        dormant: 2,
+        using: 13,
+        pctUsing: 86.7,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Huntsville Hospital Neurology Nurse Practitioners',
+        providers: 9,
+        never: 1,
+        dormant: 0,
+        using: 8,
+        pctUsing: 88.9,
+        pctNever: 11.1,
+      },
+      {
+        name: 'Spine and Neuro Center',
+        providers: 28,
+        never: 1,
+        dormant: 1,
+        using: 26,
+        pctUsing: 92.9,
+        pctNever: 3.6,
+      },
+      {
+        name: 'UAB School of Medicine-FP',
+        providers: 14,
+        never: 1,
+        dormant: 0,
+        using: 13,
+        pctUsing: 92.9,
+        pctNever: 7.1,
+      },
+      {
+        name: 'North Alabama Hospitalists',
+        providers: 87,
+        never: 2,
+        dormant: 1,
+        using: 84,
+        pctUsing: 96.6,
+        pctNever: 2.3,
+      },
+      {
+        name: 'UAB School of Medicine-IM',
+        providers: 15,
+        never: 0,
+        dormant: 0,
+        using: 15,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Huntsville Surgical Associates',
+        providers: 14,
+        never: 0,
+        dormant: 0,
+        using: 14,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Huntsville Hospital Behavioral Health Hospitalists',
+        providers: 8,
+        never: 0,
+        dormant: 0,
+        using: 8,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'HH Heart Center, Madison',
+        providers: 7,
+        never: 0,
+        dormant: 0,
+        using: 7,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Huntsville Hospital Valley Surgical Associates',
+        providers: 7,
+        never: 0,
+        dormant: 0,
+        using: 7,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Pediatric Intensivists W&C',
+        providers: 6,
+        never: 0,
+        dormant: 0,
+        using: 6,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Alabama Infectious Disease Center, PC',
+        providers: 5,
+        never: 0,
+        dormant: 0,
+        using: 5,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Heart Center, Inc. (Decatur)',
+        providers: 5,
+        never: 0,
+        dormant: 0,
+        using: 5,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+    ],
+    bySpecialty: [
+      {
+        name: 'Pain Management',
+        providers: 6,
+        never: 3,
+        dormant: 2,
+        using: 1,
+        pctUsing: 16.7,
+        pctNever: 50.0,
+      },
+      {
+        name: "Women's Health Care Nurse Practitioner",
+        providers: 9,
+        never: 4,
+        dormant: 3,
+        using: 2,
+        pctUsing: 22.2,
+        pctNever: 44.4,
+      },
+      {
+        name: 'Ophthalmology',
+        providers: 22,
+        never: 11,
+        dormant: 5,
+        using: 6,
+        pctUsing: 27.3,
+        pctNever: 50.0,
+      },
+      {
+        name: 'Adult Nurse Practitioner',
+        providers: 7,
+        never: 4,
+        dormant: 1,
+        using: 2,
+        pctUsing: 28.6,
+        pctNever: 57.1,
+      },
+      {
+        name: 'Certified Registered Nurse Midwife',
+        providers: 7,
+        never: 4,
+        dormant: 1,
+        using: 2,
+        pctUsing: 28.6,
+        pctNever: 57.1,
+      },
+      {
+        name: "Children's Dentistry",
+        providers: 10,
+        never: 5,
+        dormant: 2,
+        using: 3,
+        pctUsing: 30.0,
+        pctNever: 50.0,
+      },
+      {
+        name: 'Neonatal Nurse Practitioner',
+        providers: 16,
+        never: 7,
+        dormant: 4,
+        using: 5,
+        pctUsing: 31.2,
+        pctNever: 43.8,
+      },
+      {
+        name: 'Hematology - Oncology',
+        providers: 18,
+        never: 9,
+        dormant: 1,
+        using: 8,
+        pctUsing: 44.4,
+        pctNever: 50.0,
+      },
+      {
+        name: 'Radiology',
+        providers: 26,
+        never: 11,
+        dormant: 3,
+        using: 12,
+        pctUsing: 46.2,
+        pctNever: 42.3,
+      },
+      {
+        name: 'Radiology, Diagnostic',
+        providers: 30,
+        never: 6,
+        dormant: 10,
+        using: 14,
+        pctUsing: 46.7,
+        pctNever: 20.0,
+      },
+      {
+        name: 'Certified Physician Assistant',
+        providers: 80,
+        never: 26,
+        dormant: 14,
+        using: 40,
+        pctUsing: 50.0,
+        pctNever: 32.5,
+      },
+      {
+        name: 'Obstetrics and Gynecology',
+        providers: 41,
+        never: 12,
+        dormant: 7,
+        using: 22,
+        pctUsing: 53.7,
+        pctNever: 29.3,
+      },
+      {
+        name: 'Orthopedic Surgery',
+        providers: 27,
+        never: 6,
+        dormant: 6,
+        using: 15,
+        pctUsing: 55.6,
+        pctNever: 22.2,
+      },
+      {
+        name: 'Adult Gerontology Acute Care Nurse Practitioner',
+        providers: 100,
+        never: 24,
+        dormant: 20,
+        using: 56,
+        pctUsing: 56.0,
+        pctNever: 24.0,
+      },
+      {
+        name: 'Pediatrics',
+        providers: 30,
+        never: 12,
+        dormant: 1,
+        using: 17,
+        pctUsing: 56.7,
+        pctNever: 40.0,
+      },
+      {
+        name: 'Neonatology',
+        providers: 7,
+        never: 2,
+        dormant: 1,
+        using: 4,
+        pctUsing: 57.1,
+        pctNever: 28.6,
+      },
+      {
+        name: 'Family Nurse Practitioner',
+        providers: 134,
+        never: 33,
+        dormant: 23,
+        using: 78,
+        pctUsing: 58.2,
+        pctNever: 24.6,
+      },
+      {
+        name: 'Endocrinology',
+        providers: 5,
+        never: 0,
+        dormant: 2,
+        using: 3,
+        pctUsing: 60.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Plastic Surgery',
+        providers: 5,
+        never: 2,
+        dormant: 0,
+        using: 3,
+        pctUsing: 60.0,
+        pctNever: 40.0,
+      },
+      {
+        name: 'Neurology',
+        providers: 13,
+        never: 4,
+        dormant: 1,
+        using: 8,
+        pctUsing: 61.5,
+        pctNever: 30.8,
+      },
+      {
+        name: 'Urology',
+        providers: 8,
+        never: 3,
+        dormant: 0,
+        using: 5,
+        pctUsing: 62.5,
+        pctNever: 37.5,
+      },
+      {
+        name: 'Adult Gerontology Primary Care Nurse Practitioner',
+        providers: 11,
+        never: 2,
+        dormant: 2,
+        using: 7,
+        pctUsing: 63.6,
+        pctNever: 18.2,
+      },
+      {
+        name: 'Cardiothoracic Surgery',
+        providers: 6,
+        never: 1,
+        dormant: 1,
+        using: 4,
+        pctUsing: 66.7,
+        pctNever: 16.7,
+      },
+      {
+        name: 'General Surgery',
+        providers: 16,
+        never: 5,
+        dormant: 0,
+        using: 11,
+        pctUsing: 68.8,
+        pctNever: 31.2,
+      },
+      {
+        name: 'Acute Care Nurse Practitioner',
+        providers: 38,
+        never: 6,
+        dormant: 5,
+        using: 27,
+        pctUsing: 71.1,
+        pctNever: 15.8,
+      },
+      {
+        name: 'Gastroenterology',
+        providers: 7,
+        never: 2,
+        dormant: 0,
+        using: 5,
+        pctUsing: 71.4,
+        pctNever: 28.6,
+      },
+      {
+        name: 'Physical Medicine & Rehabilitation',
+        providers: 7,
+        never: 2,
+        dormant: 0,
+        using: 5,
+        pctUsing: 71.4,
+        pctNever: 28.6,
+      },
+      {
+        name: 'Radiation Oncology',
+        providers: 8,
+        never: 1,
+        dormant: 1,
+        using: 6,
+        pctUsing: 75.0,
+        pctNever: 12.5,
+      },
+      {
+        name: 'Otolaryngology',
+        providers: 14,
+        never: 2,
+        dormant: 1,
+        using: 11,
+        pctUsing: 78.6,
+        pctNever: 14.3,
+      },
+      {
+        name: 'Infectious Diseases',
+        providers: 15,
+        never: 2,
+        dormant: 1,
+        using: 12,
+        pctUsing: 80.0,
+        pctNever: 13.3,
+      },
+      {
+        name: 'Oral Maxiliofacial Surgery',
+        providers: 5,
+        never: 1,
+        dormant: 0,
+        using: 4,
+        pctUsing: 80.0,
+        pctNever: 20.0,
+      },
+      {
+        name: 'Emergency Medicine',
+        providers: 55,
+        never: 5,
+        dormant: 4,
+        using: 46,
+        pctUsing: 83.6,
+        pctNever: 9.1,
+      },
+      {
+        name: 'Family Medicine',
+        providers: 49,
+        never: 7,
+        dormant: 1,
+        using: 41,
+        pctUsing: 83.7,
+        pctNever: 14.3,
+      },
+      {
+        name: 'Pediatric Acute Care Nurse Practitioner',
+        providers: 8,
+        never: 0,
+        dormant: 1,
+        using: 7,
+        pctUsing: 87.5,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Pediatric Emergency Medicine',
+        providers: 10,
+        never: 0,
+        dormant: 1,
+        using: 9,
+        pctUsing: 90.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Cardiology',
+        providers: 54,
+        never: 4,
+        dormant: 1,
+        using: 49,
+        pctUsing: 90.7,
+        pctNever: 7.4,
+      },
+      {
+        name: 'Internal Medicine',
+        providers: 66,
+        never: 5,
+        dormant: 1,
+        using: 60,
+        pctUsing: 90.9,
+        pctNever: 7.6,
+      },
+      {
+        name: 'Psychiatry',
+        providers: 12,
+        never: 1,
+        dormant: 0,
+        using: 11,
+        pctUsing: 91.7,
+        pctNever: 8.3,
+      },
+      {
+        name: 'Nephrology',
+        providers: 15,
+        never: 0,
+        dormant: 1,
+        using: 14,
+        pctUsing: 93.3,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Pulmonology',
+        providers: 11,
+        never: 0,
+        dormant: 0,
+        using: 11,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Pathology',
+        providers: 9,
+        never: 0,
+        dormant: 0,
+        using: 9,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Neurosurgery',
+        providers: 7,
+        never: 0,
+        dormant: 0,
+        using: 7,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Critical Care',
+        providers: 5,
+        never: 0,
+        dormant: 0,
+        using: 5,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Critical Care/Trauma',
+        providers: 5,
+        never: 0,
+        dormant: 0,
+        using: 5,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Vascular Surgery',
+        providers: 5,
+        never: 0,
+        dormant: 0,
+        using: 5,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+    ],
+    byCategory: [
+      {
+        name: 'Associate',
+        providers: 51,
+        never: 30,
+        dormant: 6,
+        using: 15,
+        pctUsing: 29.4,
+        pctNever: 58.8,
+      },
+      {
+        name: 'Allied Health-Dependent',
+        providers: 390,
+        never: 112,
+        dormant: 69,
+        using: 209,
+        pctUsing: 53.6,
+        pctNever: 28.7,
+      },
+      {
+        name: 'Active',
+        providers: 554,
+        never: 103,
+        dormant: 46,
+        using: 405,
+        pctUsing: 73.1,
+        pctNever: 18.6,
+      },
+      {
+        name: 'AHP-Dependent Provisional',
+        providers: 33,
+        never: 2,
+        dormant: 6,
+        using: 25,
+        pctUsing: 75.8,
+        pctNever: 6.1,
+      },
+      {
+        name: 'Provisional Active',
+        providers: 99,
+        never: 8,
+        dormant: 5,
+        using: 86,
+        pctUsing: 86.9,
+        pctNever: 8.1,
+      },
+      {
+        name: 'Allied Health-Independent',
+        providers: 2,
+        never: 0,
+        dormant: 0,
+        using: 2,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+      {
+        name: 'Provisional Associate',
+        providers: 1,
+        never: 0,
+        dormant: 0,
+        using: 1,
+        pctUsing: 100.0,
+        pctNever: 0.0,
+      },
+    ],
+    targets: [
+      {
+        name: 'Clearview Cancer Institute',
+        providers: 41,
+        never: 21,
+        dormant: 5,
+        using: 15,
+        pctUsing: 36.6,
+        pctNever: 51.2,
+      },
+      {
+        name: 'Tennessee Valley Pain Consultants',
+        providers: 26,
+        never: 12,
+        dormant: 6,
+        using: 8,
+        pctUsing: 30.8,
+        pctNever: 46.2,
+      },
+      {
+        name: 'HH Obstetrics and Gynecology / Hospitalists / ED',
+        providers: 23,
+        never: 6,
+        dormant: 8,
+        using: 9,
+        pctUsing: 39.1,
+        pctNever: 26.1,
+      },
+      {
+        name: 'Madison Hospital Emergency Department',
+        providers: 13,
+        never: 8,
+        dormant: 3,
+        using: 2,
+        pctUsing: 15.4,
+        pctNever: 61.5,
+      },
+      {
+        name: 'Alabama Pediatric Dental Associates',
+        providers: 6,
+        never: 4,
+        dormant: 1,
+        using: 1,
+        pctUsing: 16.7,
+        pctNever: 66.7,
+      },
+      {
+        name: 'Retina Specialists of North Alabama',
+        providers: 5,
+        never: 1,
+        dormant: 3,
+        using: 1,
+        pctUsing: 20.0,
+        pctNever: 20.0,
+      },
+      {
+        name: 'General Surgery Associates, PC',
+        providers: 6,
+        never: 4,
+        dormant: 0,
+        using: 2,
+        pctUsing: 33.3,
+        pctNever: 66.7,
+      },
+      {
+        name: 'Neurology Consultants of Huntsville, PC',
+        providers: 6,
+        never: 3,
+        dormant: 1,
+        using: 2,
+        pctUsing: 33.3,
+        pctNever: 50.0,
+      },
+    ],
+  };
+  const t = DATA.totals;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) =>
+    String(s).replace(
+      /[&<>"]/g,
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c],
+    );
 
-$('snap').textContent = DATA.snapshot;
-$('k-core').textContent = t.corePctUsing + '%';
-$('k-coren').textContent = t.coreUsing + ' of ' + t.coreProviders;
-$('k-never').textContent = t.coreNever;
-$('k-dorm').textContent = t.coreDormant;
-$('k-rec').textContent = t.recoverable;
-$('anes-text').textContent =
-  t.anesthesia + ' anesthesia providers hold accounts and ' + t.anesthesiaNever +
-  ' have never activated them.';
-$('anes-all').textContent = t.allPctUsing + '% across all ' + t.allProviders;
+  $('snap').textContent = DATA.snapshot;
+  $('k-core').textContent = t.corePctUsing + '%';
+  $('k-coren').textContent = t.coreUsing + ' of ' + t.coreProviders;
+  $('k-never').textContent = t.coreNever;
+  $('k-dorm').textContent = t.coreDormant;
+  $('k-rec').textContent = t.recoverable;
+  $('anes-text').textContent =
+    t.anesthesia +
+    ' anesthesia providers hold accounts and ' +
+    t.anesthesiaNever +
+    ' have never activated them.';
+  $('anes-all').textContent = t.allPctUsing + '% across all ' + t.allProviders;
 
-// Funnel — ordinal ramp, worst state to best
-const RAMP = ['var(--r5)','var(--r5)','var(--r4)','var(--r3)','var(--r2)','var(--r1)'];
-const maxF = Math.max(...DATA.funnelCore.map(r => r.count));
-$('funnel').innerHTML = DATA.funnelCore.filter(r => r.count > 0).map((r, i) => `
+  // Funnel — ordinal ramp, worst state to best
+  const RAMP = [
+    'var(--r5)',
+    'var(--r5)',
+    'var(--r4)',
+    'var(--r3)',
+    'var(--r2)',
+    'var(--r1)',
+  ];
+  const maxF = Math.max(...DATA.funnelCore.map((r) => r.count));
+  $('funnel').innerHTML = DATA.funnelCore
+    .filter((r) => r.count > 0)
+    .map(
+      (r, i) => `
   <div class="funnel-row">
     <div class="bar-label">${esc(r.tier)}</div>
-    <div class="track"><div class="fill" style="width:${(r.count / maxF * 100).toFixed(1)}%;background:${RAMP[i]}"></div></div>
+    <div class="track"><div class="fill" style="width:${((r.count / maxF) * 100).toFixed(1)}%;background:${RAMP[i]}"></div></div>
     <div class="bar-val">${r.count} &middot; ${r.pct}%</div>
-  </div>`).join('');
+  </div>`,
+    )
+    .join('');
 
-// Outreach targets — proportion using vs not
-$('targets').innerHTML = DATA.targets.map(r => `
+  // Outreach targets — proportion using vs not
+  $('targets').innerHTML = DATA.targets
+    .map(
+      (r) => `
   <div class="bar-row">
     <div class="bar-label" title="${esc(r.name)}">${esc(r.name)}</div>
     <div class="track"><div class="fill" style="width:${r.pctUsing}%;background:var(--series-1)"></div></div>
     <div class="bar-val">${r.providers - r.using} of ${r.providers} idle</div>
-  </div>`).join('');
+  </div>`,
+    )
+    .join('');
 
-const rowsP = DATA.byPractice.map(r => `
+  // % using -> 1..5 step on the sequential ramp (fixed 20-point bands, so the
+  // color means the same thing regardless of which rows are in view).
+  const heatStep = (pct) => Math.min(5, Math.floor(pct / 20) + 1);
+
+  const rowsP = DATA.byPractice.map(
+    (r) => `
   <tr><td>${esc(r.name)}</td><td class="num">${r.providers}</td>
   <td class="num">${r.using}</td><td class="num">${r.never}</td>
-  <td class="num">${r.dormant}</td><td class="num">${r.pctUsing}%</td></tr>`);
-$('tb-practice').innerHTML = rowsP.join('');
+  <td class="num">${r.dormant}</td>
+  <td class="heat heat-${heatStep(r.pctUsing)}">${r.pctUsing}%</td></tr>`,
+  );
+  $('tb-practice').innerHTML = rowsP.join('');
 
-$('tb-spec').innerHTML = DATA.bySpecialty.map(r => `
+  $('tb-spec').innerHTML = DATA.bySpecialty
+    .map(
+      (r) => `
   <tr><td>${esc(r.name)}</td><td class="num">${r.providers}</td>
   <td class="num">${r.using}</td><td class="num">${r.never}</td>
-  <td class="num">${r.pctUsing}%</td></tr>`).join('');
+  <td class="num">${r.pctUsing}%</td></tr>`,
+    )
+    .join('');
 
-$('cats').innerHTML = DATA.byCategory.filter(r => r.providers >= 5).map(r => `
+  $('cats').innerHTML = DATA.byCategory
+    .filter((r) => r.providers >= 5)
+    .map(
+      (r) => `
   <div class="bar-row">
     <div class="bar-label">${esc(r.name)}</div>
     <div class="track"><div class="fill" style="width:${r.pctUsing}%;background:var(--series-1)"></div></div>
     <div class="bar-val">${r.pctUsing}% of ${r.providers}</div>
-  </div>`).join('');
+  </div>`,
+    )
+    .join('');
 </script>
