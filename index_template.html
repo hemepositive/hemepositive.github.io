@@ -1,0 +1,265 @@
+<title>TigerConnect Adoption Dashboard</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --plane: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10);
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --good: #0ca30c;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --r1: #86b6ef; --r2: #5598e7; --r3: #2a78d6; --r4: #1c5cab; --r5: #104281;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --plane: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255, 255, 255, 0.10);
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --series-3: #199e70;
+      --r1: #cde2fb; --r2: #9ec5f4; --r3: #6da7ec; --r4: #3987e5; --r5: #184f95;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --plane: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --r1: #cde2fb; --r2: #9ec5f4; --r3: #6da7ec; --r4: #3987e5; --r5: #184f95;
+  }
+
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+  header { margin-bottom: 8px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-secondary); font-size: 0.9rem; margin: 0 0 28px; }
+  h2 { font-size: 1.05rem; margin: 0 0 2px; }
+  .note { color: var(--text-secondary); font-size: 0.85rem; margin: 0 0 16px; }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .kpi { background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .kpi .label { font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi .value { font-size: 2.1rem; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px; }
+  .kpi .foot { font-size: 0.8rem; color: var(--muted); }
+  .hero .value { font-size: 3rem; color: var(--series-1); }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--grid); }
+  th { color: var(--text-secondary); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .scroll { overflow-x: auto; }
+
+  .bar-row { display: grid; grid-template-columns: 290px 1fr 108px; gap: 12px; align-items: center; margin-bottom: 7px; font-size: 0.85rem; }
+  .bar-label { color: var(--text-secondary); }
+  .track { background: var(--grid); border-radius: 4px; height: 20px; position: relative; overflow: hidden; }
+  .fill { height: 100%; border-radius: 4px; }
+  .bar-val { font-variant-numeric: tabular-nums; color: var(--text-secondary); font-size: 0.82rem; }
+
+  .funnel-row { display: grid; grid-template-columns: 170px 1fr 132px; gap: 12px; align-items: center; margin-bottom: 8px; font-size: 0.87rem; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 14px; font-size: 0.82rem; color: var(--text-secondary); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
+  .callout { border-left: 3px solid var(--series-2); background: var(--surface-1); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 20px; }
+  .callout strong { color: var(--series-2); }
+  .seg { display: flex; gap: 2px; height: 26px; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+  .seg div { display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: #fff; font-weight: 600; }
+  footer { color: var(--muted); font-size: 0.8rem; margin-top: 36px; border-top: 1px solid var(--grid); padding-top: 16px; }
+  @media (max-width: 640px) {
+    .bar-row, .funnel-row { grid-template-columns: 120px 1fr 84px; font-size: 0.8rem; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>TigerConnect Adoption Dashboard</h1>
+    <p class="sub">Provider utilization as of <span id="snap"></span> &middot; based on last login time</p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi hero">
+      <div class="label">Core adoption</div>
+      <div class="value" id="k-core">—</div>
+      <div class="foot"><span id="k-coren"></span> logged in within 30 days</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Never activated</div>
+      <div class="value" id="k-never">—</div>
+      <div class="foot">account created, never used</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Dormant / lapsed</div>
+      <div class="value" id="k-dorm">—</div>
+      <div class="foot">used it once, stopped</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Recoverable seats</div>
+      <div class="value" id="k-rec">—</div>
+      <div class="foot">never activated + dormant</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Anesthesia is excluded from the core rate.</strong>
+    <span id="anes-text"></span> They communicate by walkie-talkie and were never
+    asked to adopt TigerConnect, so counting them as non-adopters understates
+    performance everywhere else. Including them, the rate is
+    <span id="anes-all"></span>.
+  </div>
+
+  <div class="card">
+    <h2>Adoption funnel</h2>
+    <p class="note">Core providers only, excluding anesthesia and vendors. Each provider appears in exactly one tier.</p>
+    <div id="funnel"></div>
+  </div>
+
+  <div class="card">
+    <h2>Where the opportunity is</h2>
+    <p class="note">
+      Practices with 5+ providers and under 40% adoption, ordered by how many
+      providers are not using it — the biggest recoveries first.
+    </p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--series-1)"></i> Using (last 30 days)</span>
+      <span><i class="sw" style="background:var(--grid)"></i> Not using</span>
+    </div>
+    <div id="targets"></div>
+  </div>
+
+  <div class="card">
+    <h2>Adoption by practice group</h2>
+    <p class="note">All core practices with 5 or more providers, lowest adoption first.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Practice group</th>
+          <th class="num">Providers</th>
+          <th class="num">Using</th>
+          <th class="num">Never activated</th>
+          <th class="num">Dormant</th>
+          <th class="num">% Using</th>
+        </tr></thead>
+        <tbody id="tb-practice"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Adoption by specialty</h2>
+    <p class="note">Specialties with 5 or more providers, lowest adoption first.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Specialty</th>
+          <th class="num">Providers</th>
+          <th class="num">Using</th>
+          <th class="num">Never activated</th>
+          <th class="num">% Using</th>
+        </tr></thead>
+        <tbody id="tb-spec"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Adoption by staff category</h2>
+    <p class="note">Allied Health-Dependent and Associate staff lag well behind physicians.</p>
+    <div id="cats"></div>
+  </div>
+
+  <footer>
+    Aggregate counts only — no provider names, contact details, or identifiers
+    are included in this page. Outreach lists are maintained separately in
+    restricted files. Source: TigerConnect provisioned-provider export joined to
+    the medical staff roster.
+  </footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/{}/*__END__*/;
+const t = DATA.totals;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+$('snap').textContent = DATA.snapshot;
+$('k-core').textContent = t.corePctUsing + '%';
+$('k-coren').textContent = t.coreUsing + ' of ' + t.coreProviders;
+$('k-never').textContent = t.coreNever;
+$('k-dorm').textContent = t.coreDormant;
+$('k-rec').textContent = t.recoverable;
+$('anes-text').textContent =
+  t.anesthesia + ' anesthesia providers hold accounts and ' + t.anesthesiaNever +
+  ' have never activated them.';
+$('anes-all').textContent = t.allPctUsing + '% across all ' + t.allProviders;
+
+// Funnel — ordinal ramp, worst state to best
+const RAMP = ['var(--r5)','var(--r5)','var(--r4)','var(--r3)','var(--r2)','var(--r1)'];
+const maxF = Math.max(...DATA.funnelCore.map(r => r.count));
+$('funnel').innerHTML = DATA.funnelCore.filter(r => r.count > 0).map((r, i) => `
+  <div class="funnel-row">
+    <div class="bar-label">${esc(r.tier)}</div>
+    <div class="track"><div class="fill" style="width:${(r.count / maxF * 100).toFixed(1)}%;background:${RAMP[i]}"></div></div>
+    <div class="bar-val">${r.count} &middot; ${r.pct}%</div>
+  </div>`).join('');
+
+// Outreach targets — proportion using vs not
+$('targets').innerHTML = DATA.targets.map(r => `
+  <div class="bar-row">
+    <div class="bar-label" title="${esc(r.name)}">${esc(r.name)}</div>
+    <div class="track"><div class="fill" style="width:${r.pctUsing}%;background:var(--series-1)"></div></div>
+    <div class="bar-val">${r.providers - r.using} of ${r.providers} idle</div>
+  </div>`).join('');
+
+const rowsP = DATA.byPractice.map(r => `
+  <tr><td>${esc(r.name)}</td><td class="num">${r.providers}</td>
+  <td class="num">${r.using}</td><td class="num">${r.never}</td>
+  <td class="num">${r.dormant}</td><td class="num">${r.pctUsing}%</td></tr>`);
+$('tb-practice').innerHTML = rowsP.join('');
+
+$('tb-spec').innerHTML = DATA.bySpecialty.map(r => `
+  <tr><td>${esc(r.name)}</td><td class="num">${r.providers}</td>
+  <td class="num">${r.using}</td><td class="num">${r.never}</td>
+  <td class="num">${r.pctUsing}%</td></tr>`).join('');
+
+$('cats').innerHTML = DATA.byCategory.filter(r => r.providers >= 5).map(r => `
+  <div class="bar-row">
+    <div class="bar-label">${esc(r.name)}</div>
+    <div class="track"><div class="fill" style="width:${r.pctUsing}%;background:var(--series-1)"></div></div>
+    <div class="bar-val">${r.pctUsing}% of ${r.providers}</div>
+  </div>`).join('');
+</script>
